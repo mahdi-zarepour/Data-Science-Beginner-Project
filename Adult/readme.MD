@@ -28,8 +28,8 @@ The notebook performs the following preprocessing tasks:
 
 3. **Encode Target Variable**  
    - The `target` column is converted to binary format:  
-     - `>50K` → `1`  
-     - `<=50K` → `0`
+     - `<=50K` → `1`
+     - `>50K` → `0`
 
 4. **Handle Missing Values**  
    - Missing values in `workclass`, `occupation`, and `native-country` are identified.  
@@ -64,11 +64,11 @@ The original EDA is performed using Python with libraries such as `pandas`, `mat
 
 The dataset contains 45,222 rows and 14 columns. It is often used for classification tasks to predict if a person's annual income exceeds $50,000 based on census data.
 
-- **Target Variable:** `target` (Binary: 0 = <=50K, 1 = >50K)
+- **Target Variable:** `target` (Binary: 1 = <=50K, 0 = >50K)
 - **Features:** A mix of categorical and numerical variables, including:
   - `age`
   - `workclass`
-  - `fnlwgt` (final weight)
+  - `fnlwgt`
   - `education`
   - `marital-status`
   - `occupation`
@@ -105,7 +105,7 @@ Bar plots are generated for all categorical features to understand the frequency
 
 ## 📈 Key Findings
 
-*   **Imbalanced Target:** The `target` variable is imbalanced, with significantly more instances of `income <=50K` (0) than `income >50K` (1). This is a crucial consideration for model building and evaluation.
+*   **Imbalanced Target:** The `target` variable is imbalanced, with significantly more instances of `income <=50K` (1) than `income >50K` (0). This is a crucial consideration for model building and evaluation.
 
 *   **Dominant Categories:**
     *   `workclass`: `Private`
@@ -134,7 +134,7 @@ This notebook implements and compares multiple machine learning models to predic
 
 ## 📁 Dataset
 
-The dataset used is `adult_cleaned.csv`, which contains demographic and employment information of individuals. The target variable is `target` (binary: 0 = ≤50K, 1 = >50K).
+The dataset used is `adult_cleaned.csv`, which contains demographic and employment information of individuals. The target variable is `target` (binary: 1 = ≤50K, 0 = >50K).
 
 ## 📊 Features
 
@@ -185,12 +185,12 @@ GridSearchCV was used for the following models:
 
 | Model | CV Accuracy | Test Accuracy |
 |-------|-------------|---------------|
-| **Decision Tree** | **0.8528** | **0.8558** |
-| Logistic Regression | 0.8445 | 0.8495 |
-| KNN | 0.8432 | 0.8428 |
-| Naive Bayes | 0.4543 | 0.4783 |
-| Voting Classifier (Hard) | — | 0.8547 |
-| Neural Network | — | 0.8528 |
+| **Decision Tree** | **0.8528**  | **0.8549**    |
+| Logistic Regression | 0.8478      | 0.8503        |
+| KNN | 0.8377      | 0.8379        |
+| Naive Bayes | 0.6226      | 0.6448        |
+| Voting Classifier (Hard) | —           | 0.8545        |
+| Neural Network | —           | 0.8532        |
 
 
 ## 🛠️ Requirements
